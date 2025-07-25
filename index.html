@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>XRPioneer NFT Collection</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://xumm.app/assets/cdn/xumm.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>XRPioneer</h1>
+    <p>Discover the legacy of XRP-based cartoon NFTs. Only the brave will Pioneer.</p>
+  </header>
+
+  <section class="gallery">
+    <h2>Featured NFTs</h2>
+    <div class="nft-grid">
+      <img src="images/dev-nft.png" alt="Dev NFT - JBK">
+      <img src="images/nft1.png" alt="XRPioneer #001">
+      <img src="images/nft2.png" alt="XRPioneer #002">
+    </div>
+  </section>
+
+  <section class="about">
+    <h2>About the Collection</h2>
+    <p>XRPioneer is a limited collection of unique cartoon-style NFTs on the XRPL, each with varying rarity in hats, jewelry, and exclusive items. Only one special Dev NFT exists—glowing grayscale with a baby blue pop and marked “JBK”.</p>
+  </section>
+
+  <section class="links">
+    <h2>Explore</h2>
+    <ul>
+      <li><a href="https://xrp.cafe/market/xrpioneer" target="_blank">View on XRP.cafe</a></li>
+      <li><a href="https://onxrp.com/marketplace" target="_blank">View on onXRP</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <button id="connectWallet">Connect XUMM Wallet</button>
+    <p id="walletStatus"></p>
+  </section>
+
+  <footer>
+    <p>© 2025 XRPioneer. Created by JBK.</p>
+  </footer>
+
+  <script>
+    const xumm = new Xumm('YOUR_API_KEY_HERE'); // Replace with real key
+
+    document.getElementById('connectWallet').addEventListener('click', async () => {
+      const state = await xumm.authorize();
+      document.getElementById('walletStatus').textContent = 
+        `Connected: ${state.me.account}`;
+    });
+  </script>
+</body>
+</html>

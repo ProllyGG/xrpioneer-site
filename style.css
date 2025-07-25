@@ -1,0 +1,51 @@
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: #0f0f0f;
+  color: #fff;
+  line-height: 1.6;
+}
+header {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(to right, #1f1f1f, #3f3f3f);
+}
+.gallery {
+  padding: 2rem;
+  text-align: center;
+}
+.nft-grid {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.nft-grid img {
+  width: 200px;
+  border: 2px solid #444;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+.about, .links {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.links ul {
+  list-style: none;
+  padding: 0;
+}
+.links li {
+  margin: 0.5rem 0;
+}
+.links a {
+  color: #00baff;
+  text-decoration: none;
+}
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #1a1a1a;
+  color: #888;
+}
