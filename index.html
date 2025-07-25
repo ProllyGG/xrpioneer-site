@@ -3,56 +3,122 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>XRPioneer NFT Collection</title>
-  <link rel="stylesheet" href="style.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XRPioneer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://xumm.app/assets/cdn/xumm.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
 </head>
-<body>
-  <header>
-    <h1>XRPioneer</h1>
-    <p>Discover the legacy of XRP-based cartoon NFTs. Only the brave will Pioneer.</p>
+<body class="bg-gradient-to-b from-gray-900 to-black text-white">
+
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center px-6 py-4 bg-black bg-opacity-80 backdrop-blur-md">
+    <div class="text-2xl font-bold">XRPioneer</div>
+    <button id="connectWallet" class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded">Connect Wallet</button>
+  </nav>
+
+  <!-- Hero -->
+  <header class="text-center py-24 px-4 bg-[url('https://images.unsplash.com/photo-1605902711622-cfb43c4437d2')] bg-cover bg-center bg-no-repeat">
+    <div class="bg-black bg-opacity-60 p-6 rounded-xl inline-block">
+      <h1 class="text-5xl font-extrabold mb-4">XRPioneer</h1>
+      <p class="text-xl text-gray-300 max-w-xl mx-auto">Eight years strong. XRP’s first movers. The OGs who never folded.</p>
+    </div>
+    <p id="walletStatus" class="mt-4 text-green-400"></p>
   </header>
 
-  <section class="gallery">
-    <h2>Featured NFTs</h2>
-    <div class="nft-grid">
-      <img src="images/dev-nft.png" alt="Dev NFT - JBK">
-      <img src="images/nft1.png" alt="XRPioneer #001">
-      <img src="images/nft2.png" alt="XRPioneer #002">
+  <!-- Roadmap -->
+  <section class="max-w-5xl mx-auto py-16 px-6">
+    <h2 class="text-4xl font-bold mb-8 text-center">🚀 Roadmap</h2>
+    <div class="grid md:grid-cols-2 gap-8 text-gray-300">
+      <div>
+        <h3 class="text-xl font-semibold mb-2">Phase 1: Genesis (Complete)</h3>
+        <ul class="list-disc ml-6">
+          <li>Launch of 3,000 original XRPioneer NFTs</li>
+          <li>ProllyNFT minted for branding and marketing</li>
+          <li>Website + XUMM wallet integration live</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-xl font-semibold mb-2">Phase 2: Recognition</h3>
+        <ul class="list-disc ml-6">
+          <li>Submit collection to xrp.cafe and onXRP</li>
+          <li>Engage community on X and Discord</li>
+          <li>Collaborations with XRPL artists/projects</li>
+          <li>Verified marketplace listings</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-xl font-semibold mb-2">Phase 3: Utility</h3>
+        <ul class="list-disc ml-6">
+          <li>Holder snapshot for future drops</li>
+          <li>OG roles & gated channels</li>
+          <li>Raffle system + merch drops</li>
+          <li>Ownership verification</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-xl font-semibold mb-2">Phase 4: Expansion</h3>
+        <ul class="list-disc ml-6">
+          <li>Mini-series: “Young XRPioneers”</li>
+          <li>Game/metaverse integration</li>
+          <li>Story/lore collectibles</li>
+          <li>XRPL builder partnerships</li>
+        </ul>
+      </div>
+      <div class="md:col-span-2">
+        <h3 class="text-xl font-semibold mb-2">Phase 5: Legacy</h3>
+        <ul class="list-disc ml-6">
+          <li>Story-driven archival site</li>
+          <li>Public holder board</li>
+          <li>Support for XRPL creators</li>
+          <li>Community event/summit</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <section class="about">
-    <h2>About the Collection</h2>
-    <p>XRPioneer is a limited collection of unique cartoon-style NFTs on the XRPL, each with varying rarity in hats, jewelry, and exclusive items. Only one special Dev NFT exists—glowing grayscale with a baby blue pop and marked “JBK”.</p>
+  <!-- FAQ -->
+  <section class="bg-gray-800 py-16 px-6">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-4xl font-bold mb-8 text-center">❓ FAQ</h2>
+      <div class="space-y-6 text-gray-300">
+        <div>
+          <h4 class="font-semibold">What is XRPioneer?</h4>
+          <p>A collection of 3,000 unique NFTs for the OGs of XRP. True survivors, true pioneers.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold">What is ProllyNFT?</h4>
+          <p>The 1-of-1 Dev NFT — grayscale, glowing, and rare — representing the creator “Prolly.”</p>
+        </div>
+        <div>
+          <h4 class="font-semibold">Where can I buy XRPioneer NFTs?</h4>
+          <p>They’ll be listed on xrp.cafe and onXRP. Stay tuned!</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section class="links">
-    <h2>Explore</h2>
-    <ul>
-      <li><a href="https://xrp.cafe/market/xrpioneer" target="_blank">View on XRP.cafe</a></li>
-      <li><a href="https://onxrp.com/marketplace" target="_blank">View on onXRP</a></li>
-    </ul>
+  <!-- Meet the Dev -->
+  <section class="max-w-4xl mx-auto py-16 px-6">
+    <h2 class="text-4xl font-bold mb-6 text-center">👤 Meet the Dev</h2>
+    <p class="text-gray-300 text-lg text-center">Known as <strong>Prolly</strong>, the creator of XRPioneer is an OG XRP holder who's weathered it all — from FUD to lawsuits to comebacks. ProllyNFT represents both the legacy and the future of the XRPL community.</p>
   </section>
 
-  <section>
-    <button id="connectWallet">Connect XUMM Wallet</button>
-    <p id="walletStatus"></p>
-  </section>
-
-  <footer>
-    <p>© 2025 XRPioneer. Created by JBK.</p>
+  <!-- Footer -->
+  <footer class="text-center py-8 text-gray-500 text-sm bg-black border-t border-gray-700">
+    © 2025 XRPioneer. Built by Prolly.
   </footer>
 
   <script>
-    const xumm = new Xumm('36ea7491-a235-487c-b22f-7ef510bb1887'); // Replace with real key
-
+    const xumm = new Xumm('YOUR_API_KEY_HERE');
     document.getElementById('connectWallet').addEventListener('click', async () => {
       const state = await xumm.authorize();
-      document.getElementById('walletStatus').textContent = 
-        `Connected: ${state.me.account}`;
+      document.getElementById('walletStatus').textContent = `Connected: ${state.me.account}`;
     });
   </script>
+
 </body>
 </html>
