@@ -124,7 +124,7 @@
 
   <!-- Wallet Connect -->
   <script>
-    const xumm = new Xumm('YOUR_API_KEY_HERE');
+    const xumm = new Xumm('36ea7491-a235-487c-b22f-7ef510bb1887');
     document.getElementById('connectWallet').addEventListener('click', async () => {
       const state = await xumm.authorize();
       document.getElementById('walletStatus').textContent = `Connected: ${state.me.account}`;
