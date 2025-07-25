@@ -3,126 +3,98 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>XRPioneer</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://xumm.app/assets/cdn/xumm.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Inter', sans-serif; }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
     .glow {
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.7), 0 0 40px rgba(0, 255, 255, 0.5);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      filter: drop-shadow(0 0 5px white);
+      transition: transform 0.3s ease;
     }
     .glow:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 30px rgba(0, 255, 255, 1), 0 0 60px rgba(0, 255, 255, 0.8);
+    }
+    #xrpCoin {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 64px;
+      height: 64px;
+      z-index: 50;
+      animation: spin 6s linear infinite;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
   </style>
 </head>
-<body class="bg-gradient-to-b from-gray-900 to-black text-white">
+<body>
 
-  <!-- Navbar -->
-  <nav class="flex justify-between items-center px-6 py-4 bg-black bg-opacity-80 backdrop-blur-md">
-    <div class="text-2xl font-bold">XRPioneer</div>
-    <button id="connectWallet" class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded">Connect Wallet</button>
-  </nav>
+  <!-- XRP Coin Spinner -->
+  <img id="xrpCoin" src="images/xrp-coin.svg" alt="XRP Coin" />
 
   <!-- Hero -->
-  <header class="text-center py-24 px-4 bg-[url('https://images.unsplash.com/photo-1605902711622-cfb43c4437d2')] bg-cover bg-center bg-no-repeat">
-    <div class="bg-black bg-opacity-60 p-6 rounded-xl inline-block animate-fade-in">
-      <h1 class="text-5xl font-extrabold mb-4">XRPioneer</h1>
-      <p class="text-xl text-gray-300 max-w-xl mx-auto">Eight years strong. XRP’s first movers. The OGs who never folded.</p>
-    </div>
-    <p id="walletStatus" class="mt-4 text-green-400"></p>
-  </header>
+  <section class="text-center py-24 px-6 border-b border-white">
+    <h1 class="text-6xl font-extrabold tracking-wide">XRPIONEER</h1>
+    <p class="mt-4 text-lg text-gray-300 uppercase">Eight years strong. The OGs who never folded.</p>
+    <button id="connectWallet" class="mt-6 px-6 py-2 border border-white hover:bg-white hover:text-black transition">Connect Wallet</button>
+    <p id="walletStatus" class="mt-2 text-green-400 text-sm"></p>
+  </section>
 
-  <!-- Dev NFT Highlight -->
-  <section class="max-w-4xl mx-auto py-16 px-6 text-center transform transition duration-500 hover:scale-[1.02] hover:brightness-110">
-    <h2 class="text-4xl font-bold mb-6">🔥 The Dev NFT</h2>
-    <p class="text-gray-300 mb-6">This is the legendary <strong>ProllyNFT</strong> — a glowing symbol of XRP endurance, built to represent the spirit of true XRPL survivors.</p>
-    <img src="images/prollynft.jpg" alt="ProllyNFT" class="rounded-xl mx-auto w-64 glow">
+  <!-- Dev NFT -->
+  <section class="max-w-4xl mx-auto py-20 px-6 text-center border-b border-white">
+    <h2 class="text-3xl font-bold mb-4 uppercase">The Dev NFT</h2>
+    <p class="mb-6 text-gray-400">A grayscale icon of resilience and vision. Minted to lead the Pioneers.</p>
+    <img src="images/prollynft.jpg" alt="ProllyNFT" class="w-64 mx-auto glow rounded">
   </section>
 
   <!-- Roadmap -->
-  <section class="max-w-5xl mx-auto py-16 px-6 transform transition duration-500 hover:scale-[1.02] hover:brightness-110">
-    <h2 class="text-4xl font-bold mb-8 text-center">🚀 Roadmap</h2>
-    <div class="grid md:grid-cols-2 gap-8 text-gray-300">
+  <section class="max-w-5xl mx-auto py-20 px-6 border-b border-white">
+    <h2 class="text-3xl font-bold text-center mb-10 uppercase">Roadmap</h2>
+    <div class="grid md:grid-cols-2 gap-12 text-gray-300">
       <div>
-        <h3 class="text-xl font-semibold mb-2">Phase 1: Genesis (Complete)</h3>
+        <h3 class="font-semibold text-xl mb-2">Phase 1: Genesis</h3>
         <ul class="list-disc ml-6">
-          <li>Launch of 3,000 original XRPioneer NFTs</li>
-          <li>Website + XUMM wallet integration live</li>
+          <li>3,000 XRPioneer NFTs launched</li>
+          <li>Wallet connection activated</li>
         </ul>
       </div>
       <div>
-        <h3 class="text-xl font-semibold mb-2">Phase 2: Recognition</h3>
+        <h3 class="font-semibold text-xl mb-2">Phase 2: Recognition</h3>
         <ul class="list-disc ml-6">
-          <li>Submit collection to xrp.cafe and onXRP</li>
-          <li>Engage community on X and Discord</li>
-          <li>Collaborations with XRPL artists/projects</li>
-          <li>Verified marketplace listings</li>
+          <li>xrp.cafe & onXRP listings</li>
+          <li>Community & builder collabs</li>
         </ul>
       </div>
       <div>
-        <h3 class="text-xl font-semibold mb-2">Phase 3: Utility</h3>
+        <h3 class="font-semibold text-xl mb-2">Phase 3: Utility</h3>
         <ul class="list-disc ml-6">
-          <li>Holder snapshot for future drops</li>
-          <li>OG roles & gated channels</li>
-          <li>Raffle system + merch drops</li>
-          <li>Ownership verification</li>
+          <li>Raffles, merch, gated roles</li>
+          <li>Snapshot & holder rewards</li>
         </ul>
       </div>
       <div>
-        <h3 class="text-xl font-semibold mb-2">Phase 4: Expansion</h3>
+        <h3 class="font-semibold text-xl mb-2">Phase 4: Expansion</h3>
         <ul class="list-disc ml-6">
-          <li>Mini-series: “Young XRPioneers”</li>
-          <li>Game/metaverse integration</li>
-          <li>Story/lore collectibles</li>
-          <li>XRPL builder partnerships</li>
-        </ul>
-      </div>
-      <div class="md:col-span-2">
-        <h3 class="text-xl font-semibold mb-2">Phase 5: Legacy</h3>
-        <ul class="list-disc ml-6">
-          <li>Story-driven archival site</li>
-          <li>Public holder board</li>
-          <li>Support for XRPL creators</li>
-          <li>Community event/summit</li>
+          <li>Young XRPioneers mini-series</li>
+          <li>Game & metaverse integration</li>
         </ul>
       </div>
     </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="bg-gray-800 py-16 px-6 transform transition duration-500 hover:scale-[1.02] hover:brightness-110">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-4xl font-bold mb-8 text-center">❓ FAQ</h2>
-      <div class="space-y-6 text-gray-300">
-        <div>
-          <h4 class="font-semibold">What is XRPioneer?</h4>
-          <p>A collection of 3,000 unique NFTs for the OGs of XRP. True survivors, true pioneers.</p>
-        </div>
-        <div>
-          <h4 class="font-semibold">Where can I buy XRPioneer NFTs?</h4>
-          <p>They’ll be listed on xrp.cafe and onXRP. Stay tuned!</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Meet the Dev -->
-  <section class="max-w-4xl mx-auto py-16 px-6 transform transition duration-500 hover:scale-[1.02] hover:brightness-110">
-    <h2 class="text-4xl font-bold mb-6 text-center">👤 Meet the Dev</h2>
-    <p class="text-gray-300 text-lg text-center">Known as <strong>Prolly</strong>, the creator of XRPioneer is an OG XRP holder who's weathered it all — from FUD to lawsuits to comebacks. XRPioneer exists to honor the long-game holders who never gave up.</p>
   </section>
 
   <!-- Footer -->
-  <footer class="text-center py-8 text-gray-500 text-sm bg-black border-t border-gray-700">
-    © 2025 XRPioneer. Built by Prolly.
+  <footer class="text-center py-8 text-sm text-gray-500">
+    © 2025 XRPioneer — Designed by Prolly
   </footer>
 
-  <!-- Wallet Connect -->
   <script>
     const xumm = new Xumm('YOUR_API_KEY_HERE');
     document.getElementById('connectWallet').addEventListener('click', async () => {
