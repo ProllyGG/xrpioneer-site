@@ -20,6 +20,15 @@
     .glow:hover {
       transform: scale(1.05);
     }
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
     #xrpCoin {
       position: fixed;
       bottom: 2rem;
@@ -27,21 +36,24 @@
       width: 64px;
       height: 64px;
       z-index: 50;
-      animation: spin 6s linear infinite;
+      animation: spinY 4s linear infinite;
     }
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+    @keyframes spinY {
+      from { transform: rotateY(0deg); }
+      to { transform: rotateY(360deg); }
     }
   </style>
 </head>
 <body>
 
+  <!-- Sound effects -->
+  <audio id="hoverSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_a1fa7682f2.mp3?filename=hover-click-124467.mp3" preload="auto"></audio>
+
   <!-- XRP Coin Spinner -->
-  <img id="xrpCoin" src="images/xrp-coin.svg" alt="XRP Coin" />
+  <img id="xrpCoin" src="images/xrp-coin-logo.png" alt="XRP Coin" />
 
   <!-- Hero -->
-  <section class="text-center py-24 px-6 border-b border-white">
+  <section class="text-center py-24 px-6 border-b border-white reveal">
     <h1 class="text-6xl font-extrabold tracking-wide">XRPIONEER</h1>
     <p class="mt-4 text-lg text-gray-300 uppercase">Eight years strong. The OGs who never folded.</p>
     <button id="connectWallet" class="mt-6 px-6 py-2 border border-white hover:bg-white hover:text-black transition">Connect Wallet</button>
@@ -49,14 +61,14 @@
   </section>
 
   <!-- Dev NFT -->
-  <section class="max-w-4xl mx-auto py-20 px-6 text-center border-b border-white">
+  <section class="max-w-4xl mx-auto py-20 px-6 text-center border-b border-white reveal">
     <h2 class="text-3xl font-bold mb-4 uppercase">The Dev NFT</h2>
     <p class="mb-6 text-gray-400">A grayscale icon of resilience and vision. Minted to lead the Pioneers.</p>
     <img src="images/prollynft.jpg" alt="ProllyNFT" class="w-64 mx-auto glow rounded">
   </section>
 
   <!-- Roadmap -->
-  <section class="max-w-5xl mx-auto py-20 px-6 border-b border-white">
+  <section class="max-w-5xl mx-auto py-20 px-6 border-b border-white reveal">
     <h2 class="text-3xl font-bold text-center mb-10 uppercase">Roadmap</h2>
     <div class="grid md:grid-cols-2 gap-12 text-gray-300">
       <div>
@@ -91,15 +103,34 @@
   </section>
 
   <!-- Footer -->
-  <footer class="text-center py-8 text-sm text-gray-500">
+  <footer class="text-center py-8 text-sm text-gray-500 reveal">
     © 2025 XRPioneer — Designed by Prolly
   </footer>
 
+  <!-- Wallet & FX Scripts -->
   <script>
     const xumm = new Xumm('YOUR_API_KEY_HERE');
     document.getElementById('connectWallet').addEventListener('click', async () => {
       const state = await xumm.authorize();
       document.getElementById('walletStatus').textContent = `Connected: ${state.me.account}`;
+    });
+
+    // Scroll reveal animation
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('active');
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => observer.observe(r));
+
+    // Hover sound effect
+    const hoverSound = document.getElementById('hoverSound');
+    document.querySelectorAll('button, li, img').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        hoverSound.currentTime = 0;
+        hoverSound.play();
+      });
     });
   </script>
 
