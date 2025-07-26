@@ -45,6 +45,10 @@ nav a {
     transition: color 0.3s ease-in-out;
 }
 
+nav:hover .group:hover .bg-gradient-to-r {
+    width: full;
+}
+
 section {
     position: relative;
     overflow: hidden;
@@ -71,4 +75,15 @@ section {
 
 #roadmap .w-16:hover {
     transform: scale(1.1);
+}
+
+/* 3D Spin Animation */
+@keyframes spin3d {
+    0% { transform: rotateY(0deg) translateZ(0); }
+    100% { transform: rotateY(360deg) translateZ(0); }
+}
+
+.hover\:animate-spin3d:hover {
+    animation: spin3d 1.5s ease-in-out infinite;
+    transform-style: preserve-3d;
 }
