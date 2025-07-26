@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,151 +6,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>XRPioneer</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://xumm.app/assets/cdn/xumm.min.js"></script>
   <style>
     body {
-      font-family: Arial, sans-serif;
       background-color: #000;
       color: #fff;
+      font-family: Arial, sans-serif;
     }
-    .glow {
-      filter: drop-shadow(0 0 5px white);
-      transition: transform 0.3s ease;
-    }
-    .glow:hover {
-      transform: scale(1.05);
-    }
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s ease;
-    }
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    #xrpCoin {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      width: 64px;
-      height: 64px;
-      z-index: 50;
-      animation: spinY 4s linear infinite;
+    .spin3d {
+      animation: spinY 3s linear infinite;
+      transform-style: preserve-3d;
     }
     @keyframes spinY {
       from { transform: rotateY(0deg); }
       to { transform: rotateY(360deg); }
     }
+    #coin {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      width: 80px;
+      z-index: 50;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Sound effects -->
-  <audio id="hoverSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_a1fa7682f2.mp3?filename=hover-click-124467.mp3" preload="auto"></audio>
+  <!-- 3D XRP Coin -->
+  <img id="coin" src="images/xrp-coin-3d.png" alt="XRP Coin" class="spin3d" />
 
-  <!-- XRP Coin Spinner -->
-  <img id="xrpCoin" src="images/xrp-coin-logo.png" alt="XRP Coin" />
-
-  <!-- Hero -->
-  <section class="text-center py-24 px-6 border-b border-white reveal">
-    <h1 class="text-6xl font-extrabold tracking-wide">XRPIONEER</h1>
-    <p class="mt-4 text-lg text-gray-300 uppercase">Eight years strong. The OGs who never folded.</p>
-    <button id="connectWallet" class="mt-6 px-6 py-2 border border-white hover:bg-white hover:text-black transition">Connect Wallet</button>
-    <p id="walletStatus" class="mt-2 text-green-400 text-sm"></p>
-  </section>
-
-  <!-- Dev NFT -->
-  <section class="max-w-4xl mx-auto py-20 px-6 text-center border-b border-white reveal">
-    <h2 class="text-3xl font-bold mb-4 uppercase">The Dev NFT</h2>
-    <p class="mb-6 text-gray-400">A grayscale icon of resilience and vision. Minted to lead the Pioneers.</p>
-    <img src="images/prollynft.jpg" alt="ProllyNFT" class="w-64 mx-auto glow rounded">
-  </section>
-
-  <!-- Roadmap -->
-  <section class="max-w-5xl mx-auto py-20 px-6 border-b border-white reveal">
-    <h2 class="text-3xl font-bold text-center mb-10 uppercase">Roadmap</h2>
-    <div class="grid md:grid-cols-2 gap-12 text-gray-300">
-      <div>
-        <h3 class="font-semibold text-xl mb-2">Phase 1: Genesis</h3>
-        <ul class="list-disc ml-6">
-          <li>3,000 XRPioneer NFTs launched</li>
-          <li>Wallet connection activated</li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="font-semibold text-xl mb-2">Phase 2: Recognition</h3>
-        <ul class="list-disc ml-6">
-          <li>xrp.cafe & onXRP listings</li>
-          <li>Community & builder collabs</li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="font-semibold text-xl mb-2">Phase 3: Utility</h3>
-        <ul class="list-disc ml-6">
-          <li>Raffles, merch, gated roles</li>
-          <li>Snapshot & holder rewards</li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="font-semibold text-xl mb-2">Phase 4: Expansion</h3>
-        <ul class="list-disc ml-6">
-          <li>Young XRPioneers mini-series</li>
-          <li>Game & metaverse integration</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="text-center py-8 text-sm text-gray-500 reveal">
-    © 2025 XRPioneer — Designed by Prolly
-  </footer>
-
-  <!-- Wallet & FX Scripts -->
-  <script>
-    // Scroll reveal animation
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    reveals.forEach((r) => observer.observe(r));
-
-    // Hover sound
-    const hoverSound = document.getElementById('hoverSound');
-    if (hoverSound) {
-      document.querySelectorAll('button, li, img').forEach(el => {
-        el.addEventListener('mouseenter', () => {
-          try {
-            hoverSound.currentTime = 0;
-            hoverSound.play();
-          } catch (e) {
-            console.error('Sound playback failed:', e);
-          }
-        });
-      });
-    }
-
-    // Wallet connect
-    const connectWalletBtn = document.getElementById('connectWallet');
-    const walletStatus = document.getElementById('walletStatus');
-    if (connectWalletBtn && typeof Xumm === 'function') {
-      const xumm = new Xumm('36ea7491-a235-487c-b22f-7ef510bb1887');
-      connectWalletBtn.addEventListener('click', async () => {
-        try {
-          const state = await xumm.authorize();
-          walletStatus.textContent = `Connected: ${state.me.account}`;
-        } catch (e) {
-          walletStatus.textContent = 'Wallet connect failed.';
-        }
-      });
-    }
-  </script>
+  <main class="text-center py-24">
+    <h1 class="text-5xl font-bold">XRPioneer</h1>
+    <p class="mt-4 text-lg text-gray-300">Spinning with style. OGs only.</p>
+  </main>
 
 </body>
 </html>
