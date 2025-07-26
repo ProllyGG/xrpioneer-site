@@ -139,7 +139,7 @@
     const connectWalletBtn = document.getElementById('connectWallet');
     const walletStatus = document.getElementById('walletStatus');
     if (connectWalletBtn && typeof Xumm === 'function') {
-      const xumm = new Xumm('YOUR_API_KEY_HERE');
+      const xumm = new Xumm('36ea7491-a235-487c-b22f-7ef510bb1887');
       connectWalletBtn.addEventListener('click', async () => {
         try {
           const state = await xumm.authorize();
