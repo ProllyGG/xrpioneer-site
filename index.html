@@ -7,7 +7,7 @@
     <meta name="keywords" content="XRP, XRPioneers, blockchain, cryptocurrency, XRPL, community">
     <meta property="og:title" content="XRPioneers - Leading the XRP Revolution">
     <meta property="og:description" content="Join XRPioneers to shape the future of XRP on the XRP Ledger. Explore our mission and get involved!">
-    <meta property="og:image" content="images/xrpioneers-mascot.png">
+    <meta property="og:image" content="/images/xrpioneers-mascot.png">
     <meta property="twitter:card" content="summary_large_image">
     <title>XRPioneers - The XRP Revolution</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -112,13 +112,13 @@
                     <div class="mt-4">
                         <input type="text" id="memeText" placeholder="Enter meme text (e.g., 'Join XRPioneers!')" class="w-full p-2 rounded bg-gray-700 text-white border border-gray-600 focus:outline-none focus:border-blue-400">
                         <button onclick="generateMeme()" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors duration-300">Generate Meme</button>
-                        <button onclick="downloadMeme()" class="mt-2 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors duration-300">Download Meme</button>
+                        <button onclick="downloadMeme()" class="mt-2 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors duration-300" disabled id="downloadButton">Download Meme</button>
                         <input type="file" id="backgroundUpload" accept="image/*" onchange="loadBackground(event)" class="mt-2">
                     </div>
                 </div>
                 <div class="w-full md:w-1/2">
                     <p class="mb-2">Tips: Use short, catchy phrases. Share on X with #XRPioneers!</p>
-                    <img src="images/xrpioneers-mascot.png" alt="XRPioneers Mascot" id="memeImage" class="mx-auto hidden">
+                    <img src="/images/xrpioneers-mascot.png" alt="XRPioneers Mascot" id="memeImage" class="mx-auto hidden" onload="console.log('Image loaded')">
                 </div>
             </div>
         </div>
@@ -177,8 +177,14 @@
         const canvas = document.getElementById('memeCanvas');
         const ctx = canvas.getContext('2d');
         const memeImage = new Image();
-        memeImage.src = 'images/xrpioneers-mascot.png'; // Replace with your uploaded image URL
+        const downloadButton = document.getElementById('downloadButton');
+        memeImage.src = '/images/xrpioneers-mascot.png'; // Adjusted for Netlify root-relative path
         let backgroundImage = null;
+
+        memeImage.onerror = () => {
+            console.error('Failed to load mascot image. Check the path: /images/xrpioneers-mascot.png');
+            alert('Error loading mascot image. Please ensure the image is uploaded to /images/ on your server.');
+        };
 
         function loadBackground(event) {
             const file = event.target.files[0];
@@ -186,9 +192,10 @@
                 const reader = new FileReader();
                 reader.onload = function(e) {
                     backgroundImage = new Image();
+                    backgroundImage.onload = generateMeme; // Trigger generate after background loads
                     backgroundImage.src = e.target.result;
-                    generateMeme();
                 };
+                reader.onerror = () => console.error('Failed to load background image');
                 reader.readAsDataURL(file);
             }
         }
@@ -197,15 +204,15 @@
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             // Draw background if uploaded
-            if (backgroundImage) {
+            if (backgroundImage && backgroundImage.complete) {
                 ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
             } else {
                 ctx.fillStyle = '#1e293b'; // Default gray background
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
             }
 
-            // Draw the character
-            memeImage.onload = () => {
+            // Draw the character only if image is loaded
+            if (memeImage.complete) {
                 ctx.drawImage(memeImage, 100, 50, 200, 300);
 
                 // Add text (speech bubble style)
@@ -237,7 +244,13 @@
                 // Draw text inside bubble
                 ctx.fillStyle = 'black';
                 ctx.fillText(text, bubbleX + 10, bubbleY + 25);
-            };
+
+                // Enable download button
+                downloadButton.disabled = false;
+            } else {
+                console.error('Mascot image not loaded yet');
+                alert('Mascot image is loading. Please try again.');
+            }
         }
 
         function downloadMeme() {
@@ -247,8 +260,8 @@
             link.click();
         }
 
-        // Initial generation
-        generateMeme();
+        // Initial generation after image loads
+        memeImage.onload = generateMeme;
     </script>
 </body>
 </html>
