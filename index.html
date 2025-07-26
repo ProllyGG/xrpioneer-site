@@ -16,15 +16,18 @@
 </head>
 <body class="bg-gradient-to-br from-gray-900 via-blue-900 to-gray-950 text-white font-inter overflow-x-hidden">
     <!-- Navigation -->
-    <header class="fixed w-full bg-gray-800/80 backdrop-blur-md z-50 shadow-lg">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-3xl font-orbitron font-bold text-cyan-300">XRPioneers</div>
+    <header class="fixed w-full bg-transparent z-50 shadow-md">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center transition-all duration-300 hover:bg-gray-800/50 hover:backdrop-blur-md">
+            <div class="text-3xl font-orbitron font-bold text-cyan-300 group">
+                XRPioneers
+                <span class="block h-1 w-0 group-hover:w-full transition-all duration-300 bg-gradient-to-r from-cyan-300 to-blue-200"></span>
+            </div>
             <ul class="flex space-x-6">
-                <li><a href="#home" class="hover:text-cyan-200 transition-colors duration-300 text-lg font-medium text-gray-100">Home</a></li>
-                <li><a href="#mission" class="hover:text-cyan-200 transition-colors duration-300 text-lg font-medium text-gray-100">Mission</a></li>
-                <li><a href="#ecosystem" class="hover:text-cyan-200 transition-colors duration-300 text-lg font-medium text-gray-100">Ecosystem</a></li>
-                <li><a href="#get-involved" class="hover:text-cyan-200 transition-colors duration-300 text-lg font-medium text-gray-100">Get Involved</a></li>
-                <li><a href="#roadmap" class="hover:text-cyan-200 transition-colors duration-300 text-lg font-medium text-gray-100">Roadmap</a></li>
+                <li><a href="#home" class="hover:text-cyan-200 transition-colors duration-300 text-lg font-medium text-gray-100 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cyan-200 after:transition-all after:duration-300 hover:after:w-full">Home</a></li>
+                <li><a href="#mission" class="hover:text-cyan-200 transition-colors duration-300 text-lg font-medium text-gray-100 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cyan-200 after:transition-all after:duration-300 hover:after:w-full">Mission</a></li>
+                <li><a href="#ecosystem" class="hover:text-cyan-200 transition-colors duration-300 text-lg font-medium text-gray-100 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cyan-200 after:transition-all after:duration-300 hover:after:w-full">Ecosystem</a></li>
+                <li><a href="#get-involved" class="hover:text-cyan-200 transition-colors duration-300 text-lg font-medium text-gray-100 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cyan-200 after:transition-all after:duration-300 hover:after:w-full">Get Involved</a></li>
+                <li><a href="#roadmap" class="hover:text-cyan-200 transition-colors duration-300 text-lg font-medium text-gray-100 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cyan-200 after:transition-all after:duration-300 hover:after:w-full">Roadmap</a></li>
             </ul>
         </nav>
     </header>
@@ -32,9 +35,12 @@
     <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
         <div class="container mx-auto px-6 text-center z-10">
-            <h1 class="text-6xl md:text-8xl font-orbitron font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-200 animate__animated animate__fadeInDown">XRPioneers</h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto font-inter text-gray-100 animate__animated animate__fadeInUp">Leading the XRP revolution with cutting-edge blockchain innovation and a united global community.</p>
-            <a href="#get-involved" class="bg-gradient-to-r from-cyan-400 to-blue-400 text-white px-8 py-4 rounded-xl font-semibold hover:from-cyan-500 hover:to-blue-500 transition-all duration-300 animate__animated animate__pulse shadow-lg">Join the Revolution</a>
+            <h1 class="text-6xl md:text-8xl font-orbitron font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-200 animate__animated animate__fadeInDown perspective-1000 hover:animate-spin3d" style="transform-style: preserve-3d;">
+                XRPioneers
+                <span class="block text-2xl md:text-4xl font-inter text-gray-100 mt-2">The Future of XRP</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto font-inter text-gray-200 animate__animated animate__fadeInUp">Leading the XRP revolution with cutting-edge blockchain innovation and a united global community.</p>
+            <a href="#get-involved" class="bg-gradient-to-r from-cyan-400 to-blue-400 text-white px-8 py-4 rounded-xl font-semibold hover:from-cyan-500 hover:to-blue-500 transition-all duration-300 animate__animated animate__pulse shadow-lg transform hover:scale-105">Join the Revolution</a>
         </div>
         <div class="absolute inset-0 opacity-30">
             <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
@@ -174,6 +180,35 @@
                 trigger: section,
                 start: "top 80%",
                 onEnter: () => gsap.from(section, { opacity: 0, y: 50, duration: 1, ease: "power2.out" })
+            });
+        });
+
+        // 3D spin animation for hero title on hover
+        gsap.from(".hover\\:animate-spin3d", {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            scrollTrigger: {
+                trigger: "#home",
+                start: "top 80%"
+            }
+        });
+
+        gsap.utils.toArray(".hover\\:animate-spin3d").forEach(element => {
+            element.addEventListener("mouseenter", () => {
+                gsap.to(element, {
+                    rotationY: 360,
+                    duration: 1.5,
+                    ease: "power2.inOut",
+                    transformOrigin: "center center"
+                });
+            });
+            element.addEventListener("mouseleave", () => {
+                gsap.to(element, {
+                    rotationY: 0,
+                    duration: 1.5,
+                    ease: "power2.inOut"
+                });
             });
         });
     </script>
