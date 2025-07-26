@@ -49,3 +49,12 @@ button, a {
     position: relative;
     z-index: 10;
 }
+
+#memeCanvasContainer {
+    position: relative;
+    overflow: hidden;
+}
+
+#memeCanvas {
+    border: 1px solid #4b5563;
+}
