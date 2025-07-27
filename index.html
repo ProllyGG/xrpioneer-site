@@ -3,42 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>XRPioneers - The XRP Vanguard</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <title>XRPioneers - The XRP Revolution</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="text-white font-inter overflow-x-hidden">
-  <div id="vanta-bg" class="absolute top-0 left-0 w-full h-full -z-10"></div>
+<body class="bg-gradient-to-br from-gray-900 via-blue-900 to-gray-950 text-white font-inter overflow-x-hidden">
 
-  <section class="min-h-screen flex flex-col items-center justify-center text-center px-6 backdrop-blur-sm">
-    <h1 class="text-5xl md:text-7xl font-orbitron text-cyan-400 drop-shadow-lg mb-4 animate-pulse">
-      We Were First.
-    </h1>
-    <p class="text-lg md:text-2xl text-gray-200 max-w-3xl mb-8">
-      XRPioneers stood strong through volatility, FUD, and lawsuits. While others watched, we built. While others doubted, we believed.
-    </p>
-    <a href="#get-involved" class="px-8 py-3 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-xl font-medium hover:from-cyan-500 hover:to-blue-600 transition">
-      Join the Vanguard
-    </a>
-  </section>
-
-  <section id="get-involved" class="py-20 px-6 text-center backdrop-blur-md">
-    <h2 class="text-4xl font-orbitron text-cyan-300 mb-6">Get Involved</h2>
-    <p class="text-gray-300 mb-8">Join our community channels or contribute to open innovation.</p>
-    <div class="flex flex-wrap justify-center gap-4">
-      <a href="#" class="px-6 py-3 glass-btn">Telegram</a>
-      <a href="#" class="px-6 py-3 glass-btn">X (Twitter)</a>
-      <a href="#" class="px-6 py-3 glass-btn">Contribute</a>
+  <!-- Hero Section -->
+  <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <div class="container mx-auto px-6 text-center z-10">
+      <h1 class="text-6xl md:text-8xl font-orbitron font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-200 animate__animated animate__fadeInDown perspective-1000">
+        XRPioneers
+        <span class="block text-2xl md:text-4xl font-inter text-gray-100 mt-2">The Future of XRP</span>
+      </h1>
+      <p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto font-inter text-gray-200 animate__animated animate__fadeInUp">
+        Leading the XRP revolution with cutting-edge blockchain innovation and a united global community.
+      </p>
+      <a href="#get-involved" class="bg-gradient-to-r from-cyan-400 to-blue-400 text-white px-8 py-4 rounded-xl font-semibold hover:from-cyan-500 hover:to-blue-500 transition-all duration-300 animate__animated animate__pulse shadow-lg transform hover:scale-105">
+        Join the Revolution
+      </a>
+    </div>
+    <div class="absolute inset-0 opacity-30 z-0">
+      <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style="stop-color:cyan;stop-opacity:0.5" />
+            <stop offset="100%" style="stop-color:blue;stop-opacity:0" />
+          </radialGradient>
+        </defs>
+        <circle cx="50" cy="50" r="40" fill="url(#glow)" />
+        <path d="M10 80 Q50 10 90 80" stroke="cyan" stroke-width="2" fill="none" />
+      </svg>
     </div>
   </section>
 
-  <footer class="py-8 text-center bg-gray-900 backdrop-blur-sm">
-    <p class="text-gray-500">© 2025 XRPioneers. All rights reserved.</p>
-  </footer>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.waves.min.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
