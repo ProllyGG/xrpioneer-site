@@ -3,22 +3,10 @@
 @tailwind utilities;
 
 @layer base {
-    html {
-        scroll-behavior: smooth;
-    }
-    body {
-        font-family: 'Inter', sans-serif;
-    }
-    h1, h2, h3 {
-        font-family: 'Orbitron', sans-serif;
-    }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; }
+  h1,h2,h3 { font-family: 'Orbitron', sans-serif; }
 }
-
 @layer components {
-    .shadow-neumorph {
-        box-shadow: 8px 8px 16px #00000040, -8px -8px 16px #ffffff10;
-    }
-    .shadow-neumorph-hover {
-        box-shadow: 12px 12px 24px #00000060, -12px -12px 24px #ffffff20;
-    }
+  .shadow { box-shadow: 0 0 15px rgba(0,0,0,0.5); }
 }
