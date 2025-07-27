@@ -109,57 +109,70 @@
     </section>
 
     <!-- Roadmap Section (Expanded) -->
-    <section id="roadmap" class="py-24 bg-gradient-to-br from-gray-900 to-blue-950">
+       <!-- Roadmap Section (Expanded with Glitch Effect) -->
+    <section id="roadmap" class="py-24 bg-gradient-to-br from-gray-900 to-blue-950 relative overflow-hidden">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl md:text-5xl font-orbitron font-bold mb-10 text-blue-300">Roadmap</h2>
+            <h2 class="text-4xl md:text-5xl font-orbitron font-bold mb-10 text-blue-300 glitch" data-text="Roadmap">Roadmap</h2>
             <p class="text-lg md:text-xl max-w-5xl mx-auto mb-12 font-inter leading-relaxed text-gray-200">A journey to empower the XRP community with innovation, rewards, and engagement.</p>
-            <div class="relative max-w-5xl mx-auto">
-                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 bg-blue-400 h-full opacity-50"></div>
-                <div class="space-y-12 mt-12 relative z-10">
+            <div class="relative max-w-5xl mx-auto z-10">
+                <canvas id="glitchCanvas" class="absolute inset-0 w-full h-full opacity-50 pointer-events-none"></canvas>
+                <div class="space-y-12 relative z-10">
                     <!-- Phase 1 -->
-                    <div class="flex items-center justify-between">
-                        <div class="w-16 h-16 bg-blue-400/50 rounded-full flex items-center justify-center text-white font-orbitron text-lg shadow-lg">Q3 2025</div>
-                        <div class="p-6 bg-gray-700/50 rounded-xl w-2/3 text-left shadow-neumorph hover:shadow-neumorph-hover transition-all duration-300">
+                    <div class="flex items-center justify-between group">
+                        <div class="w-16 h-16 bg-blue-400/50 rounded-full flex items-center justify-center text-white font-orbitron text-lg shadow-lg transform transition-transform duration-300 group-hover:scale-110">
+                            Q3 2025
+                        </div>
+                        <div class="p-6 bg-gray-700/50 rounded-xl w-2/3 text-left shadow-neumorph hover:shadow-neumorph-hover transition-all duration-300 group-hover:bg-gray-600/60">
                             <h3 class="text-xl font-semibold text-cyan-200">Community Launch</h3>
                             <p class="text-gray-300">Official launch with community events, Discord setup, and initial XRP Ledger DApp prototypes.</p>
                         </div>
                     </div>
                     <!-- Phase 2 -->
-                    <div class="flex items-center justify-between">
-                        <div class="w-16 h-16 bg-blue-400/50 rounded-full flex items-center justify-center text-white font-orbitron text-lg shadow-lg">Q4 2025</div>
-                        <div class="p-6 bg-gray-700/50 rounded-xl w-2/3 text-left shadow-neumorph hover:shadow-neumorph-hover transition-all duration-300">
+                    <div class="flex items-center justify-between group">
+                        <div class="w-16 h-16 bg-blue-400/50 rounded-full flex items-center justify-center text-white font-orbitron text-lg shadow-lg transform transition-transform duration-300 group-hover:scale-110">
+                            Q4 2025
+                        </div>
+                        <div class="p-6 bg-gray-700/50 rounded-xl w-2/3 text-left shadow-neumorph hover:shadow-neumorph-hover transition-all duration-300 group-hover:bg-gray-600/60">
                             <h3 class="text-xl font-semibold text-cyan-200">NFT Collection Drop</h3>
-                            <p class="text-gray-300">Release a limited-edition XRPioneers NFT collection, granting holders exclusive access to future events and governance rights.</p>
+                            <p class="text-gray-300">Release a limited-edition XRPioneers NFT collection, granting holders exclusive access and governance rights.</p>
                         </div>
                     </div>
                     <!-- Phase 3 -->
-                    <div class="flex items-center justify-between">
-                        <div class="w-16 h-16 bg-blue-400/50 rounded-full flex items-center justify-center text-white font-orbitron text-lg shadow-lg">Q1 2026</div>
-                        <div class="p-6 bg-gray-700/50 rounded-xl w-2/3 text-left shadow-neumorph hover:shadow-neumorph-hover transition-all duration-300">
+                    <div class="flex items-center justify-between group">
+                        <div class="w-16 h-16 bg-blue-400/50 rounded-full flex items-center justify-center text-white font-orbitron text-lg shadow-lg transform transition-transform duration-300 group-hover:scale-110">
+                            Q1 2026
+                        </div>
+                        <div class="p-6 bg-gray-700/50 rounded-xl w-2/3 text-left shadow-neumorph hover:shadow-neumorph-hover transition-all duration-300 group-hover:bg-gray-600/60">
                             <h3 class="text-xl font-semibold text-cyan-200">Token Launch</h3>
-                            <p class="text-gray-300">Introduce the XRPioneer Token (XPT) on the XRP Ledger, enabling staking rewards and community voting on project direction.</p>
+                            <p class="text-gray-300">Introduce the XRPioneer Token (XPT) on the XRP Ledger, enabling staking rewards and community voting.</p>
                         </div>
                     </div>
                     <!-- Phase 4 -->
-                    <div class="flex items-center justify-between">
-                        <div class="w-16 h-16 bg-blue-400/50 rounded-full flex items-center justify-center text-white font-orbitron text-lg shadow-lg">Q2 2026</div>
-                        <div class="p-6 bg-gray-700/50 rounded-xl w-2/3 text-left shadow-neumorph hover:shadow-neumorph-hover transition-all duration-300">
+                    <div class="flex items-center justify-between group">
+                        <div class="w-16 h-16 bg-blue-400/50 rounded-full flex items-center justify-center text-white font-orbitron text-lg shadow-lg transform transition-transform duration-300 group-hover:scale-110">
+                            Q2 2026
+                        </div>
+                        <div class="p-6 bg-gray-700/50 rounded-xl w-2/3 text-left shadow-neumorph hover:shadow-neumorph-hover transition-all duration-300 group-hover:bg-gray-600/60">
                             <h3 class="text-xl font-semibold text-cyan-200">Giveaway Campaign</h3>
                             <p class="text-gray-300">Host a series of giveaways, offering XPT tokens and exclusive NFTs to participants who engage on X and Discord.</p>
                         </div>
                     </div>
                     <!-- Phase 5 -->
-                    <div class="flex items-center justify-between">
-                        <div class="w-16 h-16 bg-blue-400/50 rounded-full flex items-center justify-center text-white font-orbitron text-lg shadow-lg">Q3 2026</div>
-                        <div class="p-6 bg-gray-700/50 rounded-xl w-2/3 text-left shadow-neumorph hover:shadow-neumorph-hover transition-all duration-300">
+                    <div class="flex items-center justify-between group">
+                        <div class="w-16 h-16 bg-blue-400/50 rounded-full flex items-center justify-center text-white font-orbitron text-lg shadow-lg transform transition-transform duration-300 group-hover:scale-110">
+                            Q3 2026
+                        </div>
+                        <div class="p-6 bg-gray-700/50 rounded-xl w-2/3 text-left shadow-neumorph hover:shadow-neumorph-hover transition-all duration-300 group-hover:bg-gray-600/60">
                             <h3 class="text-xl font-semibold text-cyan-200">Giving Back to NFT Holders</h3>
-                            <p class="text-gray-300">Airdrop bonus XPT tokens and exclusive merchandise to early NFT holders, plus unlock a metaverse hub for community interaction.</p>
+                            <p class="text-gray-300">Airdrop bonus XPT tokens and exclusive merchandise, plus unlock a metaverse hub for community interaction.</p>
                         </div>
                     </div>
                     <!-- Phase 6 -->
-                    <div class="flex items-center justify-between">
-                        <div class="w-16 h-16 bg-blue-400/50 rounded-full flex items-center justify-center text-white font-orbitron text-lg shadow-lg">Q1 2027</div>
-                        <div class="p-6 bg-gray-700/50 rounded-xl w-2/3 text-left shadow-neumorph hover:shadow-neumorph-hover transition-all duration-300">
+                    <div class="flex items-center justify-between group">
+                        <div class="w-16 h-16 bg-blue-400/50 rounded-full flex items-center justify-center text-white font-orbitron text-lg shadow-lg transform transition-transform duration-300 group-hover:scale-110">
+                            Q1 2027
+                        </div>
+                        <div class="p-6 bg-gray-700/50 rounded-xl w-2/3 text-left shadow-neumorph hover:shadow-neumorph-hover transition-all duration-300 group-hover:bg-gray-600/60">
                             <h3 class="text-xl font-semibold text-cyan-200">Ecosystem Expansion</h3>
                             <p class="text-gray-300">Partnerships with exchanges, new DApp integrations, and a community-driven DAO for decentralized governance.</p>
                         </div>
