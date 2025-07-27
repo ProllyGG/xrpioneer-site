@@ -3,82 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>XRPioneers - The XRP Revolution</title>
-  <!-- Tailwind via CDN -->
+  <title>XRPioneers - The XRP Vanguard</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Custom Styles -->
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="bg-gradient-to-br from-gray-900 via-blue-900 to-gray-950 text-white overflow-x-hidden">
+<body class="text-white font-inter overflow-x-hidden">
+  <div id="vanta-bg" class="absolute top-0 left-0 w-full h-full -z-10"></div>
 
-  <!-- Hero Section -->
-  <section class="min-h-screen flex flex-col items-center justify-center text-center px-6">
-    <h1 class="text-6xl md:text-8xl font-orbitron text-cyan-300 mb-4">XRPioneers</h1>
-    <p class="text-lg md:text-2xl text-gray-300 mb-8">Welcome to the future of XRP. Fast. Scalable. Visionary.</p>
-    <a href="#get-involved" class="px-8 py-3 bg-cyan-500 rounded-lg font-medium hover:bg-cyan-600 transition">Join Now</a>
-  </section>
-
-  <!-- Mission -->
-  <section id="mission" class="py-20 px-6 text-center bg-gray-800/50 backdrop-blur-sm">
-    <h2 class="text-4xl font-orbitron text-blue-300 mb-6">Our Mission</h2>
-    <p class="max-w-3xl mx-auto text-gray-300 mb-12">
-      Advancing the XRP Ledger ecosystem through decentralized innovation, community empowerment, and sustainable blockchain solutions.
+  <section class="min-h-screen flex flex-col items-center justify-center text-center px-6 backdrop-blur-sm">
+    <h1 class="text-5xl md:text-7xl font-orbitron text-cyan-400 drop-shadow-lg mb-4 animate-pulse">
+      We Were First.
+    </h1>
+    <p class="text-lg md:text-2xl text-gray-200 max-w-3xl mb-8">
+      XRPioneers stood strong through volatility, FUD, and lawsuits. While others watched, we built. While others doubted, we believed.
     </p>
+    <a href="#get-involved" class="px-8 py-3 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-xl font-medium hover:from-cyan-500 hover:to-blue-600 transition">
+      Join the Vanguard
+    </a>
   </section>
 
-  <!-- Ecosystem -->
-  <section id="ecosystem" class="py-20 px-6 text-center">
-    <h2 class="text-4xl font-orbitron text-cyan-300 mb-6">XRP Ecosystem</h2>
-    <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-      <div class="p-6 bg-gray-800/50 rounded-xl shadow hover:shadow-lg transition">
-        <h3 class="font-semibold text-xl text-blue-200 mb-2">XRP Ledger</h3>
-        <p class="text-gray-300">Fast, scalable, and cost-effective transactions.</p>
-      </div>
-      <div class="p-6 bg-gray-800/50 rounded-xl shadow hover:shadow-lg transition">
-        <h3 class="font-semibold text-xl text-blue-200 mb-2">Exchanges</h3>
-        <p class="text-gray-300">Trade XRP on leading platforms.</p>
-      </div>
-      <div class="p-6 bg-gray-800/50 rounded-xl shadow hover:shadow-lg transition">
-        <h3 class="font-semibold text-xl text-blue-200 mb-2">DApps</h3>
-        <p class="text-gray-300">Decentralized apps for the XRP community.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Get Involved -->
-  <section id="get-involved" class="py-20 px-6 text-center bg-gray-800/50 backdrop-blur-sm">
+  <section id="get-involved" class="py-20 px-6 text-center backdrop-blur-md">
     <h2 class="text-4xl font-orbitron text-cyan-300 mb-6">Get Involved</h2>
-    <p class="text-gray-300 mb-8">Join our Telegram, follow on X, or contribute to our open-source projects.</p>
+    <p class="text-gray-300 mb-8">Join our community channels or contribute to open innovation.</p>
     <div class="flex flex-wrap justify-center gap-4">
-      <a href="#" class="px-6 py-3 bg-cyan-500 rounded-lg hover:bg-cyan-600 transition">Telegram</a>
-      <a href="#" class="px-6 py-3 bg-blue-500 rounded-lg hover:bg-blue-600 transition">X (Twitter)</a>
-      <a href="#" class="px-6 py-3 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-lg hover:from-cyan-500 hover:to-blue-500 transition">Contribute</a>
+      <a href="#" class="px-6 py-3 glass-btn">Telegram</a>
+      <a href="#" class="px-6 py-3 glass-btn">X (Twitter)</a>
+      <a href="#" class="px-6 py-3 glass-btn">Contribute</a>
     </div>
   </section>
 
-  <!-- Roadmap -->
-  <section id="roadmap" class="py-20 px-6 text-center">
-    <h2 class="text-4xl font-orbitron text-blue-300 mb-10">Roadmap</h2>
-    <div class="max-w-3xl mx-auto space-y-12">
-      <div class="flex items-center space-x-4">
-        <div class="w-12 h-12 bg-blue-400/50 rounded-full flex items-center justify-center text-white font-orbitron">Q3 '25</div>
-        <p class="text-gray-300">Community launch & initial DApp development.</p>
-      </div>
-      <div class="flex items-center space-x-4">
-        <div class="w-12 h-12 bg-blue-400/50 rounded-full flex items-center justify-center text-white font-orbitron">Q1 '26</div>
-        <p class="text-gray-300">Ecosystem expansion & new partnerships.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="py-8 text-center bg-gray-900">
+  <footer class="py-8 text-center bg-gray-900 backdrop-blur-sm">
     <p class="text-gray-500">© 2025 XRPioneers. All rights reserved.</p>
   </footer>
 
-  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.waves.min.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
